@@ -84,18 +84,18 @@ public class MyDateTest{
                 expectedDate._month == date._month &&
                 expectedDate._year == date._year );
         //Cas M3,J2,Y2
-        date = new MyDate(28,2,2016);
+        date = new MyDate(28,2,2017);
         date.nextDay();
-        expectedDate = new MyDate(1,3,2016);
+        expectedDate = new MyDate(1,3,2017);
         assertTrue("Cas M3,J2,Y2",expectedDate._day == date._day &&
                 expectedDate._month == date._month &&
                 expectedDate._year == date._year );
         //Cas M3,J3,Y1 Erreur
 
         //Cas M3,J3,Y2
-        date = new MyDate(29,2,2016);
+        date = new MyDate(29,2,2017);
         date.nextDay();
-        expectedDate = new MyDate(1,3,2016);
+        expectedDate = new MyDate(1,3,2017);
         assertTrue("Cas M3,J3,Y2",expectedDate._day == date._day &&
                 expectedDate._month == date._month &&
                 expectedDate._year == date._year );
@@ -108,10 +108,10 @@ public class MyDateTest{
         assertTrue("Cas M4,J1-4",expectedDate._day == date._day &&
                 expectedDate._month == date._month &&
                 expectedDate._year == date._year );
-        //Cas M4-J5
+        //Cas M4,J5
         date = new MyDate(31,12,2016);
         date.nextDay();
-        expectedDate = new MyDate(1,1,2015);
+        expectedDate = new MyDate(1,1,2017);
         assertTrue("Cas M4-J5",expectedDate._day == date._day &&
                 expectedDate._month == date._month &&
                 expectedDate._year == date._year );
