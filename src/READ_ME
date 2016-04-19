@@ -1,33 +1,40 @@
 Réponse sujet :
 
-Pour pouvoir créer mes jeux de test j'ai rajouté dans MyDate, la méthode hashCode et Equals.
+Pour pouvoir créer mes jeux de test, j'ai rajouté dans MyDate, la méthode hashCode et Equals.
 
 Test pour la fonction MyDate() :
-Tout les test sont passée. Aucune erreur n'a été détectée.
+Tous les tests sont passés. Aucune erreur n'a été détectée.
 
 
 Test pour la méthode checkData() :
-Le test Année < 1000 (assertFalse("Année < 1000",date.checkData());) échoue car dans le code on dit que l'année est bonne s'il elle est supérieur à 0.
-Le test Année > 3000 : pour ce test il n'existe pas de controle sur l'année maximal. Il suffit juste que l'année soit > 0.
+/!\ Les deux tests Année < 1000 et Année > 3000 ont été mis en commentaire pour que les autres test puissent passer.
+
+Le test Année < 1000 (assertFalse("Année < 1000",date.checkData());)
+échoue car dans le code on dit que l'année est bonne s'il elle est supérieur à 0.
+Le test Année > 3000 : (assertFalse("Année > 3000",date.checkData());)
+pour ce test, il n'existe pas de controle sur l'année maximal. Il suffit juste que l'année soit > 0.
 
 Test pour la méthode nextDay() :
 
 Jeux de test trouver grâce à la table de décisions et à la simplification "Don't care".
 
-Le test "Cas M2,J5"(ex : 31/4/2016) devrais retourner une erreur alors qu'il retourne 32/4/2016. Pour le corriger il faudrasi ajouter la vérification checkData.
-Voilà pourquoi j'ai utiliser le test suivant : assertFalse("Cas M2,J5",date.checkData());
+Le test "Cas M2,J5"(ex : 31/4/2016) devrais retourner une erreur alors qu'il retourne 32/4/2016.
+Pour le corriger, il faudrait ajouter la vérification checkData.
+Voilà pourquoi j'ai utilisé le test suivant : assertFalse("Cas M2,J5",date.checkData());
 
-Le test "Cas M3,J3,Y2" (ex 29/2/2017) devrais retourner une erreur car l'année 2017 n'étant pas bissextile le 29 Fevrier ne devrais pas exister.
-d'où le test :
+Le test "Cas M3,J3,Y2" (ex 29/2/2017) devrait retourner une erreur car l'année 2017 n'étant pas bissextile le 29 Fevrier
+ ne devrait pas exister.
+D'où le test :
         date = new MyDate(29,2,2017);
         assertFalse("Cas M3,J3,Y2",date.checkData());
-mais ce test existe déjà dans checkDate().
+Mais ce test existe déjà dans checkDate().
 
-Le test "Cas M3,J4-5" (ex : (30,2,2017) devrais retourner une erreur car le 30 février n'existe pas. Il faudrais rajouter le test checkDate dans la méthode nextDay.
+Le test "Cas M3,J4-5" (ex : (30,2,2017) devrais retourner une erreur car le 30 février n'existe pas.
+Il faudrais rajouter le test checkDate() dans la méthode nextDay().
 D'ou le test pour detecter l'erreur :
         date = new MyDate(30,2,2017);
         assertFalse("Cas M3,J4-5",date.checkData());
-mais ce test existe déjà dans checkDate().
+Mais ce test existe déjà dans checkDate().
 
 
 

@@ -33,7 +33,7 @@ public class MyDateTest{
 
     @org.junit.Test
     public void checkData() throws Exception {
-    /*
+    /* Jeux de test pour la fonction checkData
         Jour < 1
         Jour > 31
         Mois < 1
@@ -54,14 +54,17 @@ public class MyDateTest{
         //Mois > 12
         date = new MyDate(1,13,2016);
         assertFalse("Mois > 12",date.checkData());
-        //Année < 1000
-        date = new MyDate(1,1,999);
-        //assertFalse("Année < 1000",date.checkData());
-        //Année > 3000
-        date = new MyDate(1,1,3001);
-        //assertFalse("Année > 3000",date.checkData());
         //Cas bon
         assertTrue("Cas bon",date.checkData());
+        /* Décommenter le bloc si l'on modifie la condition du code year <1 et si on rajoute la condition
+            year > 3000
+        Année < 1000
+        date = new MyDate(1,1,999);
+        assertFalse("Année < 1000",date.checkData());
+        //Année > 3000
+        date = new MyDate(1,1,3001);
+        assertFalse("Année > 3000",date.checkData());
+        */
 
     }
 
@@ -80,8 +83,8 @@ public class MyDateTest{
             J4 = 30
             J5 = 31
             Année 2 variants
-            A1 = bissextile
-            A2 = non bissextile
+            Y1 = bissextile
+            Y2 = non bissextile
         */
         MyDate expectedDate = null;
         //Cas M1,J1-4
