@@ -36,36 +36,37 @@ public class MyDateTest{
     }
 
     @org.junit.Test
+    public void MyDate() throws Exception {
+        date = new MyDate(15,4,2016);
+        assertNotNull(date);
+        assertEquals("Jour crée correct",15,date._day);
+        assertEquals("Mois crée correct",4,date._month);
+        assertEquals("Année crée correct",2016,date._year);
+    }
+
+    @org.junit.Test
     public void nextDay() throws Exception {
         MyDate expectedDate = null;
         //Cas M1,J1-4
         date = new MyDate(2,1,2016);
         date.nextDay();
         expectedDate = new MyDate(3,1,2016);
-        assertTrue("Cas M1,J1-4",expectedDate._day == date._day &&
-                expectedDate._month == date._month &&
-                expectedDate._year == date._year );
+        assertEquals("Cas M1,J1-4",expectedDate,date);
         //Cas M1,J5
         date = new MyDate(31,1,2016);
         date.nextDay();
         expectedDate = new MyDate(1,2,2016);
-        assertTrue("Cas M1,J5",expectedDate._day == date._day &&
-                expectedDate._month == date._month &&
-                expectedDate._year == date._year );
+        assertEquals("Cas M1,J5",expectedDate,date);
         //Cas M2,J1-3
         date = new MyDate(28,4,2016);
         date.nextDay();
         expectedDate = new MyDate(29,4,2016);
-        assertTrue("Cas M2,J1-3",expectedDate._day == date._day &&
-                expectedDate._month == date._month &&
-                expectedDate._year == date._year );
+        assertEquals("Cas M2,J1-3",expectedDate,date);
         //Cas M2,J4
         date = new MyDate(30,4,2016);
         date.nextDay();
         expectedDate = new MyDate(1,5,2016);
-        assertTrue("Cas M2,J4",expectedDate._day == date._day &&
-                expectedDate._month == date._month &&
-                expectedDate._year == date._year );
+        assertEquals("Cas M2,J4",expectedDate,date);
 
         //Cas M2,J5  Erreur
 
@@ -73,48 +74,36 @@ public class MyDateTest{
         date = new MyDate(1,2,2016);
         date.nextDay();
         expectedDate = new MyDate(2,2,2016);
-        assertTrue("Cas M3,J1",expectedDate._day == date._day &&
-                expectedDate._month == date._month &&
-                expectedDate._year == date._year );
+        assertEquals("Cas M3,J1",expectedDate,date);
         //Cas M3,J2,Y1
         date = new MyDate(28,2,2016);
         date.nextDay();
         expectedDate = new MyDate(29,2,2016);
-        assertTrue("Cas M3,J2,Y1",expectedDate._day == date._day &&
-                expectedDate._month == date._month &&
-                expectedDate._year == date._year );
+        assertEquals("Cas M3,J2,Y1",expectedDate,date);
         //Cas M3,J2,Y2
         date = new MyDate(28,2,2017);
         date.nextDay();
         expectedDate = new MyDate(1,3,2017);
-        assertTrue("Cas M3,J2,Y2",expectedDate._day == date._day &&
-                expectedDate._month == date._month &&
-                expectedDate._year == date._year );
+        assertEquals("Cas M3,J2,Y2",expectedDate,date);
         //Cas M3,J3,Y1 Erreur
 
         //Cas M3,J3,Y2
         date = new MyDate(29,2,2017);
         date.nextDay();
         expectedDate = new MyDate(1,3,2017);
-        assertTrue("Cas M3,J3,Y2",expectedDate._day == date._day &&
-                expectedDate._month == date._month &&
-                expectedDate._year == date._year );
+        assertEquals("Cas M3,J3,Y2",expectedDate,date);
         //Cas M3,J4-5 Erreur
 
         //Cas M4,J1-4
         date = new MyDate(1,12,2016);
         date.nextDay();
         expectedDate = new MyDate(2,12,2016);
-        assertTrue("Cas M4,J1-4",expectedDate._day == date._day &&
-                expectedDate._month == date._month &&
-                expectedDate._year == date._year );
+        assertEquals("Cas M4,J1-4",expectedDate,date);
         //Cas M4,J5
         date = new MyDate(31,12,2016);
         date.nextDay();
         expectedDate = new MyDate(1,1,2017);
-        assertTrue("Cas M4-J5",expectedDate._day == date._day &&
-                expectedDate._month == date._month &&
-                expectedDate._year == date._year );
+        assertEquals("Cas M4-J5",expectedDate,date);
     }
 
 }

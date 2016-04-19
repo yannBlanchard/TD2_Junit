@@ -200,4 +200,24 @@ class MyDate {
         this._month = month;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MyDate myDate = (MyDate) o;
+
+        if (_day != myDate._day) return false;
+        if (_month != myDate._month) return false;
+        return _year == myDate._year;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = _day;
+        result = 31 * result + _month;
+        result = 31 * result + _year;
+        return result;
+    }
 }
